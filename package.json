@@ -1,0 +1,19 @@
+{
+  "name": "passwordsecurityclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiHyeon-Hong/Password_security_client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiHyeon-Hong/Password_security_client/issues"
+  },
+  "homepage": "https://github.com/KiHyeon-Hong/Password_security_client#readme"
+}
