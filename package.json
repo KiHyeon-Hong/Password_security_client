@@ -18,5 +18,8 @@
   "homepage": "https://github.com/KiHyeon-Hong/Password_security_client#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0"
   }
 }
