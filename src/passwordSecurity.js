@@ -6,11 +6,12 @@ const PasswordValidation = require(__dirname + '/PasswordValidation.js');
 const PasswordModelDistribution = require(__dirname + '/PasswordModelDistribution.js');
 const PasswordDictUpdate = require(__dirname + '/PasswordDictUpdate.js');
 const PasswordModelParaUpdate = require(__dirname + '/PasswordModelParaUpdate.js');
+const PasswordValidationTest = require(__dirname + '/PasswordValidationTest.js');
 
 class PasswordSecurity {
     passwordValidation(password) {
         // 반환받은 결과를 바탕으로 피드백 기능 필요
-        return new PasswordValidation.PasswordValidation().passwordValidation("pds$66wo@d");
+        return new PasswordValidation.PasswordValidation().passwordValidation(password);
     };
 
     passwordModelDistribution(versionData, comment) {
@@ -28,8 +29,8 @@ class PasswordSecurity {
         */
 
         var pwd = new PasswordModelDistribution.PasswordModelDistribution();
-        pwd.passwordModelDistributionWeights();
-        pwd.passwordModelDistributionModel();
+        pwd.passwordModelDistributionWeights(versionData, comment);
+        pwd.passwordModelDistributionModel(versionData, comment);
 
         return 'passwordModelDistribution';
     };
@@ -51,6 +52,11 @@ class PasswordSecurity {
     getLog(level, startDate, finishDate) {
         return 'getLog';
     }
+
+    passwordValidationTest(password) {
+        
+        return new PasswordValidationTest.PasswordValidationTest().passwordValidationTest("pds$66wo@d");
+    };
 }
 
 module.exports.PasswordSecurity = PasswordSecurity;
