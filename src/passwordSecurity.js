@@ -1,21 +1,21 @@
 const fs = require('fs');
 const http = require('http');
+const request = require('request');
 
-var tf = require('@tensorflow/tfjs');
-require("tfjs-node-save");
+const PasswordValidation = require(__dirname + '/PasswordValidation.js');
+const PasswordModelDistribution = require(__dirname + '/PasswordModelDistribution.js');
+const PasswordDictUpdate = require(__dirname + '/PasswordDictUpdate.js');
+const PasswordModelParaUpdate = require(__dirname + '/PasswordModelParaUpdate.js');
 
-class passwordSecurity {
+class PasswordSecurity {
     passwordValidation(password) {
-        const test = async function() {
-            const loadedModel = await tf.loadLayersModel("file://" + __dirname + "/../passwordModel/model.json");
-            loadedModel.predict(tf.tensor([[0, 2, 10]])).print();
-        }
-        
-        test();
-        return 'passwordValidation';
+        // 반환받은 결과를 바탕으로 피드백 기능 필요
+        return new PasswordValidation.PasswordValidation().passwordValidation("pds$66wo@d");
     };
 
     passwordModelDistribution(versionData, comment) {
+        // 서버 주소 파일 형태로 변환 기능 필요
+        /*
         const weights = fs.createWriteStream("./PasswordSecurityClient/passwordModel/weights.bin");
         http.get("http://localhost:65001/passwordModelDistributionWeight", function(response) {
             response.pipe(weights);
@@ -25,15 +25,26 @@ class passwordSecurity {
         http.get("http://localhost:65001/passwordModelDistributionModel", function(response) {
             response.pipe(model);
         });
+        */
+
+        var pwd = new PasswordModelDistribution.PasswordModelDistribution();
+        pwd.passwordModelDistributionWeights();
+        pwd.passwordModelDistributionModel();
 
         return 'passwordModelDistribution';
     };
 
     passwordDictUpdate(dictionary, comment) {
+        var pwd = new PasswordDictUpdate.PasswordDictUpdate();
+        pwd.passwordDictUpdate(dictionary, comment);
+
         return 'passwordDictUpdate';
     };
 
     passwordModelParaUpdate(parameter, comment) {
+        var pwd = new PasswordModelParaUpdate.PasswordModelParaUpdate();
+        pwd.passwordModelParaUpdate(parameter, comment);
+
         return 'passwordModelParaUpdate';
     };
 
@@ -42,4 +53,4 @@ class passwordSecurity {
     }
 }
 
-module.exports.passwordSecurity = passwordSecurity;
+module.exports.PasswordSecurity = PasswordSecurity;

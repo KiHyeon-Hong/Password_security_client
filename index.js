@@ -1,7 +1,7 @@
 const passwordSecurityClient = require('./src/index.js');
-const passwordSecurity = require('./src/passwordSecurity.js');
+const PasswordSecurity = require('./src/PasswordSecurity.js');
 
 module.exports = {
   passwordSecurityClient : passwordSecurityClient,
-  passwordSecurity: passwordSecurity
+  PasswordSecurity: PasswordSecurity
 }
