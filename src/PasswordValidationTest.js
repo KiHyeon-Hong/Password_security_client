@@ -16,9 +16,12 @@ class PasswordValidationTest {
 
         // console.log(comparePoint.frequencyComparePoint("rlgus"));
         // console.log(comparePoint.koreanZxcvbnString("rlgus"));
+
         const loadedModel = await tf.loadLayersModel("file://" + __dirname + "/../passwordModel/model.json");
-        loadedModel.predict(tf.tensor([feature])).print();
+        var predictPoint = loadedModel.predict(tf.tensor([feature]));
+        predictPoint = Array.from(predictPoint.dataSync())[0];
         
+        return predictPoint;
     };
 }
 

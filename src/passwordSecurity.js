@@ -7,6 +7,7 @@ const PasswordModelDistribution = require(__dirname + '/PasswordModelDistributio
 const PasswordDictUpdate = require(__dirname + '/PasswordDictUpdate.js');
 const PasswordModelParaUpdate = require(__dirname + '/PasswordModelParaUpdate.js');
 const PasswordValidationTest = require(__dirname + '/PasswordValidationTest.js');
+const PasswordSecurityCheck = require(__dirname + '/PasswordSecurityCheck.js');
 
 class PasswordSecurity {
     passwordValidation(password) {
@@ -53,9 +54,9 @@ class PasswordSecurity {
         return 'getLog';
     }
 
-    passwordValidationTest(password) {
-        
-        return new PasswordValidationTest.PasswordValidationTest().passwordValidationTest("pds$66wo@d");
+    async passwordValidationTest(password) {
+        const result = await new PasswordValidationTest.PasswordValidationTest().passwordValidationTest(password);
+        return new PasswordSecurityCheck.PasswordSecurityCheck().passwordSecurityCheck(password, result);
     };
 }
 
