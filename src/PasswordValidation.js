@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-const koreanZxcvbn = require(__dirname + '/../lib/koreanBasedPassword/koreanZxcvbn');
+const koreanZxcvbn = require(__dirname + '/../lib/koreanZxcvbn');
 const levenshteinDistance = require(__dirname + '/../lib/levenshteinDistance.js');
 const ludsPoint = require(__dirname + '/../lib/ludsPoint.js');
 
-const koreanZxcvbnString = require(__dirname + '/../lib/koreanBasedPassword/koreanZxcvbnString');
+const koreanZxcvbnString = require(__dirname + '/../lib/koreanZxcvbnString');
 const comparePoint = new koreanZxcvbnString.koreanZxcvbnString.koreanZxcvbnString();
 
 var tf = require('@tensorflow/tfjs');
