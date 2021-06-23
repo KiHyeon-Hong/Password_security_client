@@ -33,8 +33,16 @@ const levenshteinDistance = (orig, comp) => {
 }
 
 const totalLVD = (text) => {
-    let data = fs.readFileSync(__dirname + '/./files/frequencyList.txt', 'utf8');
-    data = data.split(',');
+    var female = fs.readFileSync(__dirname + '/koreanZxcvbnString/files/femaleListToEng.txt', 'utf8');
+    var male = fs.readFileSync(__dirname + '/koreanZxcvbnString/files/maleListToEng.txt', 'utf8');
+    var word = fs.readFileSync(__dirname + '/koreanZxcvbnString/files/wordDataToEng.txt', 'utf8');
+    
+    female = female.split(',');
+    male = male.split(',');
+    word = word.split(',');
+    
+    var data = [];
+    data = data.concat(female, male, word);
 
     var min = text.length;
     var temp = 0;
