@@ -21,6 +21,8 @@ class PasswordValidation {
         var predictPoint = loadedModel.predict(tf.tensor([feature]));
         predictPoint = Array.from(predictPoint.dataSync())[0];
         
+        console.log(feature);
+
         return predictPoint;
     };
 }

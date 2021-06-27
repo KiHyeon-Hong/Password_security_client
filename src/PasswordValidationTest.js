@@ -20,7 +20,7 @@ class PasswordValidationTest {
         const loadedModel = await tf.loadLayersModel("file://" + __dirname + "/../passwordModel/model.json");
         var predictPoint = loadedModel.predict(tf.tensor([feature]));
         predictPoint = Array.from(predictPoint.dataSync())[0];
-        
+
         return predictPoint;
     };
 }
