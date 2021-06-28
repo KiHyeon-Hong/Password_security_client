@@ -9,7 +9,8 @@ const comparePoint = new koreanZxcvbnString.koreanZxcvbnString.koreanZxcvbnStrin
 
 class PasswordSecurityCheck {
     passwordSecurityCheck(password, predictPoint) {
-        if(predictPoint > 0.5) {
+        // predictPoint 어떤 것이 우수한지 테스트 필요
+        if(predictPoint > 0.6) {
             return {
                 password: password,
                 comment: [
@@ -21,10 +22,22 @@ class PasswordSecurityCheck {
             };
         }
 
-        
+        var feature = [(koreanZxcvbn(password).score * 2) + comparePoint.frequencyComparePoint(password), ludsPoint.ludsPoint(password).nScore, levenshteinDistance.totalLVD(password)];
+        console.log(feature);
+
+        /*
+            핵심 부분
+
+        */
+        var comment = [];
+        var recommended = [];
+
+
 
         return {
-
+            password: password,
+            comment: comment,
+            recommended: recommended
         };
     };
 }

@@ -12,7 +12,7 @@ require("tfjs-node-save");
 
 class PasswordValidation {
     async passwordValidation(password) {
-        var feature = [(koreanZxcvbn(password).score * 2) + comparePoint.frequencyComparePoint(password), ludsPoint.ludsPoint(password).nScore, levenshteinDistance.totalLVD(password)]
+        var feature = [(koreanZxcvbn(password).score * 2) + comparePoint.frequencyComparePoint(password), ludsPoint.ludsPoint(password).nScore, levenshteinDistance.totalLVD(password)];
 
         // const loadedModel = await tf.loadLayersModel("file://" + __dirname + "/../passwordModel/model.json");
         // loadedModel.predict(tf.tensor([feature])).print();
@@ -21,7 +21,7 @@ class PasswordValidation {
         var predictPoint = loadedModel.predict(tf.tensor([feature]));
         predictPoint = Array.from(predictPoint.dataSync())[0];
         
-        console.log(feature);
+        console.log(predictPoint);
 
         return predictPoint;
     };
