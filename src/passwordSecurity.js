@@ -19,8 +19,10 @@ class PasswordSecurity {
     passwordModelDistribution(versionData, comment) {
         // 서버 주소 파일 형태로 변환 기능 필요
         var pwd = new PasswordModelDistribution.PasswordModelDistribution();
+        
         pwd.passwordModelDistributionWeights(versionData, comment);
         pwd.passwordModelDistributionModel(versionData, comment);
+        pwd.passwordModelDistributionDictionary(versionData, comment);
 
         return 'passwordModelDistribution';
     };
@@ -42,6 +44,10 @@ class PasswordSecurity {
     getLog(level, startDate, finishDate) {
         return 'getLog';
     }
+
+
+
+
 
     async passwordValidationTest(password) {
         const result = await new PasswordValidationTest.PasswordValidationTest().passwordValidationTest(password);

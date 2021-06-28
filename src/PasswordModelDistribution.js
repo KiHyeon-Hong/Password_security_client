@@ -33,6 +33,13 @@ class PasswordModelDistribution {
             response.pipe(model);
         });
     };
+
+    /*
+        추가된 유출 비밀번호를 포함한 사전을 특징 추출을 위한 사전에 추가
+    */
+    passwordModelDistributionDictionary(versionData, comment) {
+
+    }
 }
 
 module.exports.PasswordModelDistribution = PasswordModelDistribution;
