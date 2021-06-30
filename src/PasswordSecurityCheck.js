@@ -13,6 +13,7 @@ class PasswordSecurityCheck {
         if(predictPoint > 0.6) {
             return {
                 password: password,
+                predictPoint: predictPoint,
                 comment: [
                     `${password}는 유출되지 않은 비밀번호`
                 ],
@@ -36,6 +37,7 @@ class PasswordSecurityCheck {
 
         return {
             password: password,
+            predictPoint: predictPoint,
             comment: comment,
             recommended: recommended
         };

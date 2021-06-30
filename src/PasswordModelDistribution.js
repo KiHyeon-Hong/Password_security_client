@@ -12,8 +12,10 @@ class PasswordModelDistribution {
             downloadPath = downloadPath + path[i] + '/';
         }
 
+        var address = fs.readFileSync(__dirname + '/../files/smartServerAddress.txt', 'utf8');
+
         const weights = fs.createWriteStream(downloadPath + 'passwordModel/weights.bin');
-        http.get(`http://localhost:65001/passwordModelDistributionWeight?versionData=${versionData}&comment=${comment}`, function(response) {
+        http.get(`http://${address}/passwordModelDistributionWeight?versionData=${versionData}&comment=${comment}`, function(response) {
             response.pipe(weights);
         });
     };
@@ -28,8 +30,10 @@ class PasswordModelDistribution {
             downloadPath = downloadPath + path[i] + '/';
         }
 
+        var address = fs.readFileSync(__dirname + '/../files/smartServerAddress.txt', 'utf8');
+
         const model = fs.createWriteStream(downloadPath + 'passwordModel/model.json');
-        http.get(`http://localhost:65001/passwordModelDistributionModel?versionData=${versionData}&comment=${comment}`, function(response) {
+        http.get(`http://${address}/passwordModelDistributionModel?versionData=${versionData}&comment=${comment}`, function(response) {
             response.pipe(model);
         });
     };

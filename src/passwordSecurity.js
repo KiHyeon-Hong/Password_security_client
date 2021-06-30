@@ -17,7 +17,7 @@ class PasswordSecurity {
     };
 
     passwordModelDistribution(versionData, comment) {
-        // 서버 주소 파일 형태로 변환 기능 필요
+        // 사전 파일도 받아오도록 작성
         var pwd = new PasswordModelDistribution.PasswordModelDistribution();
         
         pwd.passwordModelDistributionWeights(versionData, comment);
@@ -31,31 +31,30 @@ class PasswordSecurity {
         var pwd = new PasswordDictUpdate.PasswordDictUpdate();
         pwd.passwordDictUpdate(dictionary, comment);
 
-        return 'passwordDictUpdate';
+        return 'passwordDictUpdate Success';
     };
 
     passwordModelParaUpdate(parameter, comment) {
         var pwd = new PasswordModelParaUpdate.PasswordModelParaUpdate();
         pwd.passwordModelParaUpdate(parameter, comment);
 
-        return 'passwordModelParaUpdate';
+        return 'passwordModelParaUpdate Success';
     };
 
     getLog(level, startDate, finishDate) {
         return 'getLog';
     }
 
+    serverAddressUpdate(serverAddress) {
+        fs.writeFileSync(__dirname + '/../files/smartServerAddress.txt', serverAddress, 'utf8');
+        return 'server Address Update';
+    }
 
 
+    
 
+    passwordModelTest(serverAddress) {
 
-    async passwordValidationTest(password) {
-        const result = await new PasswordValidationTest.PasswordValidationTest().passwordValidationTest(password);
-        return new PasswordSecurityCheck.PasswordSecurityCheck().passwordSecurityCheck(password, result);
-    };
-
-    passwordModelTest(versionData, comment) {
-        
     }
 }
 
