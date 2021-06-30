@@ -5,7 +5,13 @@ class PasswordModelDistribution {
     passwordModelDistributionWeights(versionData, comment) {
         var path = __dirname;
 
-        path = path.split('\\');
+        var tempPath = path.split('\\');
+
+        if(tempPath.length == 1) {
+            tempPath = path.split('/');
+        }
+
+        path = tempPath;
 
         var downloadPath = "";
         for(let i = 0; i < path.length - 1; i++) {
@@ -23,7 +29,13 @@ class PasswordModelDistribution {
     passwordModelDistributionModel(versionData, comment) {
         var path = __dirname;
 
-        path = path.split('\\');
+        var tempPath = path.split('\\');
+
+        if(tempPath.length == 1) {
+            tempPath = path.split('/');
+        }
+
+        path = tempPath;
 
         var downloadPath = "";
         for(let i = 0; i < path.length - 1; i++) {
