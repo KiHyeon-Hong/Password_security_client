@@ -14,9 +14,6 @@ class PasswordValidation {
     async passwordValidation(password) {
         var feature = [(koreanZxcvbn(password).score * 2) + comparePoint.frequencyComparePoint(password), ludsPoint.ludsPoint(password).nScore, levenshteinDistance.totalLVD(password)];
 
-        // const loadedModel = await tf.loadLayersModel("file://" + __dirname + "/../passwordModel/model.json");
-        // loadedModel.predict(tf.tensor([feature])).print();
-
         const loadedModel = await tf.loadLayersModel("file://" + __dirname + "/../passwordModel/model.json");
         var predictPoint = loadedModel.predict(tf.tensor([feature]));
         predictPoint = Array.from(predictPoint.dataSync())[0];

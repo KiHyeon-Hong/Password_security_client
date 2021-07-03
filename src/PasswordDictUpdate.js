@@ -16,9 +16,13 @@ class PasswordDictUpdate {
             body: data,
             json: true
         }, function(err, res, body) {
-            console.log(body);
+            
         });
         
+        return {
+            state: 200,
+            comment: `사전 수정 요청 완료`
+        };
     }
 }
 

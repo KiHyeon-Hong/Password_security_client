@@ -50,11 +50,27 @@ class PasswordModelDistribution {
         });
     };
 
-    /*
-        추가된 유출 비밀번호를 포함한 사전을 특징 추출을 위한 사전에 추가
-    */
     passwordModelDistributionDictionary(versionData, comment) {
+        var path = __dirname;
 
+        var tempPath = path.split('\\');
+
+        if(tempPath.length == 1) {
+            tempPath = path.split('/');
+        }
+
+        path = tempPath;
+
+        var downloadPath = "";
+        for(let i = 0; i < path.length - 1; i++) {
+            downloadPath = downloadPath + path[i] + '/';
+        }
+
+        var address = fs.readFileSync(__dirname + '/../files/smartServerAddress.txt', 'utf8');
+
+        http.get(`http://${address}/passwordModelDistributionDict?versionData=${versionData}&comment=${comment}`, function(response) {
+
+        });
     }
 }
 

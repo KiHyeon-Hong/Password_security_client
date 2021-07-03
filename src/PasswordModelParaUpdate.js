@@ -16,9 +16,13 @@ class PasswordModelParaUpdate {
             body: data,
             json: true
         }, function(err, res, body) {
-            // res.json(body);
-            console.log(body);
+            
         });
+
+        return {
+            state: 200,
+            comment: `하이퍼 파라매터 수정 요청 완료`
+        };
     }
 }
 
