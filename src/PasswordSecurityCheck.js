@@ -29,6 +29,8 @@ class PasswordSecurityCheck {
 
         // feedback
 
+        
+
         return {
             password: password,
             predictPoint: predictPoint,
